@@ -34,21 +34,30 @@ namespace GasMileageWeb
 
             if (!IsPostBack)
             {
-                FillOwnerGrid();
-                FillCarGrid();
-                FillTripGrid();
+                
 
                 User u = new User();
                 u = (User)Session["USER"];
                 lblWelcome.Text = " / Welcome " + u.FNAME + " " + u.LNAME;
 
+
+                
+
+
                 if (u.USERTYPE == "ADMIN")
                 {
+                    FillOwnerGrid();
                     gvOWNER.Visible = true;
+                    LitOWNERS.Visible = true;
+                    FillCarGrid();
+                    FillTripGrid();
+                    
                 }
                 else
                 {
                     gvOWNER.Visible = false;
+                    FillCarGrid(u);
+                    FillTripGrid(u);
                 }
             }
 
@@ -204,6 +213,31 @@ namespace GasMileageWeb
             List<Car> cl = new List<Car>();
             cl = objCar.GetAllBusObjCars();
 
+
+            gvCar.DataSource = cl;
+            gvCar.DataBind();
+
+
+        }
+
+
+        ///<summary>
+        /// Overload for regular user type which should only see their cars
+        ///</summary>
+        ///<remarks>
+        /// Some remarks
+        ///</remarks>
+        ///<param name="u">User u</param>
+        ///<return>void</return>
+        private void FillCarGrid(User u)
+        {
+            // get the cars for my gridview
+            CarBusObj objCar = new CarBusObj();
+            List<Car> cl = new List<Car>();
+            int i = Convert.ToInt32(u.OWNERTABLEID);
+           
+            cl = objCar.GetAllBusObjCars();
+            cl = cl.Where(x => x.FK_OWNER_ID == i).ToList();
 
             gvCar.DataSource = cl;
             gvCar.DataBind();
@@ -379,6 +413,22 @@ namespace GasMileageWeb
             ml = TripObj.GetAllBusObjMileages();
 
 
+            gvTrip.DataSource = ml;
+            gvTrip.DataBind();
+
+
+        }
+
+        private void FillTripGrid(User u)
+        {
+            // get the cars for my gridview
+            MileageBusObj TripObj = new MileageBusObj();
+            List<Mileage> ml = new List<Mileage>();
+            int i = Convert.ToInt32(u.OWNERTABLEID);
+            ml = TripObj.GetAllBusObjMileages();
+
+            // TODO need to have all the cars pks for this user
+            //ml = ml.Where(x => x.)
             gvTrip.DataSource = ml;
             gvTrip.DataBind();
 

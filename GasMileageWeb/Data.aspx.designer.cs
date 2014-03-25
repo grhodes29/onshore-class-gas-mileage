@@ -49,6 +49,15 @@ namespace GasMileageWeb {
         protected global::GasMileageWeb.MenuNew MenuNew;
         
         /// <summary>
+        /// LitOWNERS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LitOWNERS;
+        
+        /// <summary>
         /// gvOWNER control.
         /// </summary>
         /// <remarks>

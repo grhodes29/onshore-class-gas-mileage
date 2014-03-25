@@ -14,7 +14,9 @@
     <form id="formData" runat="server">
     <div>
     <h1>Data<asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label></h1><br />
-    <uc1:MenuNew runat="server" ID="MenuNew" />        
+    <uc1:MenuNew runat="server" ID="MenuNew" /> 
+             
+    <asp:Literal ID="LitOWNERS" runat="server"><h2>OWNERS</h2></asp:Literal>
     <asp:GridView ID="gvOWNER" runat="server" AutoGenerateColumns="False" CssClass="grid"
             AlternatingRowStyle-CssClass="gridEditRow" RowStyle-CssClass="gridRow" ShowFooter="True"
             EditRowStyle-CssClass="gridEditRow" FooterStyle-CssClass="gridFooterRow" OnRowDeleting="gvOWNER_RowDeleting"
@@ -310,6 +312,8 @@
         <br />
         <br />
         <br />
+
+        <h2>CARS</h2>   
         <asp:GridView ID="gvCar" runat="server" AutoGenerateColumns="false" CssClass="grid" OnRowCommand="gvCar_RowCommand"
         OnRowEditing="gvCar_RowEditing" OnRowUpdating="gvCar_RowUpdating" OnRowCancelingEdit="gvCar_RowCancelingEdit" 
         OnRowDeleting="gvCar_RowDeleting"  DataKeyNames="PK_CAR_ID" ShowFooter="true" OnRowDataBound="gvCar_RowDataBound"
@@ -502,7 +506,8 @@
     </asp:GridView>
     <br />
     <br />
-    <br />          
+    <br />     
+     <h2>TRIPS FOR CARS</h2>        
      <asp:GridView ID="gvTrip" runat="server" AutoGenerateColumns="false" CssClass="grid" DataKeyNames="PK_CARMILEAGE_ID" ShowFooter="true" 
         AlternatingRowStyle-CssClass="gridEditRow" FooterStyle-CssClass="gridFooterRow" EditRowStyle-CssClass="gridEditRow" 
         RowStyle-CssClass="gridRow" OnRowCommand="gvTrip_RowCommand" OnRowEditing="gvTrip_RowEditing" OnRowUpdating="gvTrip_RowUpdating" 

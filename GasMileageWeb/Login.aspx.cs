@@ -31,13 +31,17 @@
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
-            OwnerBusObj obj = new OwnerBusObj();
+            OwnerBusObj ownerobjbus = new OwnerBusObj();
             List<Owner> ol = new List<Owner>();
 
-            Owner newowner = new Owner();
-            newowner.FNAME = txtbxUser.Text;
+            CarBusObj carobjbus = new CarBusObj();
+            List<Car> cl = new List<Car>();
 
-            ol = obj.GetAllBusObjOwners();
+            //Owner newowner = new Owner();
+            //newowner.FNAME = txtbxUser.Text;
+
+            ol = ownerobjbus.GetAllBusObjOwners();
+            cl = carobjbus.GetAllBusObjCars();
 
             var result = ol.Where(x => x.USERID == txtbxUser.Text
                 && x.PASSWORD == txtPassword.Text).LongCount();
@@ -51,6 +55,14 @@
                 && x.PASSWORD == txtPassword.Text).Select(x => x.LNAME).FirstOrDefault().ToString();
                 u.USERTYPE = ol.Where(x => x.USERID == txtbxUser.Text
                 && x.PASSWORD == txtPassword.Text).Select(x => x.USERTYPE).FirstOrDefault().ToString();
+                u.OWNERTABLEID = ol.Where(x => x.USERID == txtbxUser.Text
+                    && x.PASSWORD == txtPassword.Text).Select(x => x.PK_OWNER_ID).FirstOrDefault();
+
+
+               // TODO - GET LIST OF CARS FOR THIS OWENER
+                u.CARTABLEIDS = cl.Where(x => x.FK_OWNER_ID == u.OWNERTABLEID).
+                    Select(y => y.PK_CAR_ID).ToList<int>();
+
                 Session["USER"] = u;
                 
                 Response.Redirect("Data.aspx");
