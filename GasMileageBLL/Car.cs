@@ -21,6 +21,8 @@
         public string FNAME { get; set; }
         public string LNAME { get; set; }
 
+        // some comment
+
 
         public static CarMapper ObjToMapper(Car iObjCar)
         {
