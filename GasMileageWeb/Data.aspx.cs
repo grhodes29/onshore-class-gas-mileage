@@ -38,7 +38,7 @@ namespace GasMileageWeb
 
                 User u = new User();
                 u = (User)Session["USER"];
-                lblWelcome.Text = " / Welcome " + u.FNAME + " " + u.LNAME;
+                lblWelcome.Text = "Welcome " + u.FNAME + " " + u.LNAME;
 
 
                 
@@ -56,6 +56,7 @@ namespace GasMileageWeb
                 else
                 {
                     gvOWNER.Visible = false;
+                    LitOWNERS.Visible = false;
                     FillCarGrid(u);
                     FillTripGrid(u);
                 }

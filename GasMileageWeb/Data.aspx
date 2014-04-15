@@ -13,7 +13,7 @@
 <body>
     <form id="formData" runat="server">
     <div>
-    <h1>Data<asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label></h1><br />
+    <h1><asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label></h1><br />
     <uc1:MenuNew runat="server" ID="MenuNew" /> 
              
     <asp:Literal ID="LitOWNERS" runat="server"><h2>OWNERS</h2></asp:Literal>

@@ -27,10 +27,10 @@
         ///<return></return>
         static public string GetConnectionString()
         {
-            var connectionstring = System.Configuration.ConfigurationManager.
-                ConnectionStrings["GasMileageConnection"].
-                ToString();
+            var connectionstring = System.Configuration.ConfigurationManager.ConnectionStrings["GasMileageConnection"].
+                ConnectionString.ToString();
             return connectionstring;
+
         }
     
     }
