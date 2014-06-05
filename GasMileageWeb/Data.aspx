@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Data.aspx.cs" Inherits="GasMileageWeb.Data" %>
 <%@ Register Src="~/Header.ascx" TagPrefix="uc1" TagName="Header" %>
-<%@ Register Src="~/MenuNew.ascx" TagPrefix="uc1" TagName="MenuNew" %>
+<%@ Register Src="~/Menu.ascx" TagPrefix="uc1" TagName="Menu" %>
 
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <form id="formData" runat="server">
     <div>
     <h1><asp:Label ID="lblWelcome" runat="server" Text=""></asp:Label></h1><br />
-    <uc1:MenuNew runat="server" ID="MenuNew" /> 
+    <uc1:Menu runat="server" ID="Menu" /> 
              
     <asp:Literal ID="LitOWNERS" runat="server"><h2>OWNERS</h2></asp:Literal>
     <asp:GridView ID="gvOWNER" runat="server" AutoGenerateColumns="False" CssClass="grid"

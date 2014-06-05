@@ -67,7 +67,6 @@
     <Content Include="images\Gas_Pump_clipart_image.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Menu.ascx" />
-    <Content Include="MenuNew.ascx" />
     <Content Include="Ownerdata.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Tripdata.aspx" />
@@ -124,13 +123,6 @@
     </Compile>
     <Compile Include="Menu.ascx.designer.cs">
       <DependentUpon>Menu.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="MenuNew.ascx.cs">
-      <DependentUpon>MenuNew.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MenuNew.ascx.designer.cs">
-      <DependentUpon>MenuNew.ascx</DependentUpon>
     </Compile>
     <Compile Include="Ownerdata.aspx.cs">
       <DependentUpon>Ownerdata.aspx</DependentUpon>
