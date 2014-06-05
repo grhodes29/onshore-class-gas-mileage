@@ -26,6 +26,13 @@ namespace GasMileageWeb
             public int Id { get; set; }
             public string Name { get; set; }
         }
+
+        public class MileageForDropDown
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }        
+        
+        }
         
         
         
@@ -254,19 +261,11 @@ namespace GasMileageWeb
             
             }
             
-           
-
-
-
-
-
-
-          
-
+        
             return cList;
         }
 
-
+        // admin user
         private void FillTripGrid()
         {
             // get the cars for my gridview
@@ -279,17 +278,75 @@ namespace GasMileageWeb
 
         }
 
-
+        // regular user - need to filter out all trips not this user's
         private void FillTripGrid(User u)
         {
-            // get the cars for my gridview
+           // List<CarForDropDown> cList = new List<CarForDropDown>();
+
+             CarBusObj objCar = new CarBusObj();
+             List<Car> cl = new List<Car>();
+             cl = objCar.GetAllBusObjCars();
+
+            var queryCarsList = ((from c in cl
+                                  select new
+                                  {
+                                      c.PK_CAR_ID,
+                                      c.FK_OWNER_ID,
+                                      CAR = c.VIN + " " + c.MAKE + " " + c.MODEL + " " + c.YEAR
+                                  }).Where(x => x.FK_OWNER_ID == u.PK_ID_USER)).ToList();
+
+
+             //foreach (var element in queryCarsList)
+             //   {
+             //       CarForDropDown obj = new CarForDropDown();
+             //       obj.Id = element.PK_CAR_ID;
+             //       obj.Name = element.CAR;
+             //       cList.Add(obj);
+
+             //   }
+            
+
+
             MileageBusObj TripObj = new MileageBusObj();
             List<Mileage> ml = new List<Mileage>();
-            int i = Convert.ToInt32(u.OWNERTABLEID);
             ml = TripObj.GetAllBusObjMileages();
 
+
+
             // TODO need to have all the cars pks for this user
-            //ml = ml.Where(x => x.)
+
+            //var queryTripsList = ((from c in cl
+            //                       join m in ml on c.PK_CAR_ID equals m.FK_CAR_ID
+            //                       select new
+            //                       {
+            //                           m.PK_CARMILEAGE_ID,
+            //                           m.FK_CAR_ID,
+            //                           c.PK_CAR_ID
+            //                       }).Distinct()).ToList();
+
+
+                 var queryTripsList = (from c in cl
+                                   join m in ml on c.PK_CAR_ID equals m.FK_CAR_ID   
+                              
+                                   select new
+                                   {
+                                       m.PK_CARMILEAGE_ID,
+                                       m.FK_CAR_ID,
+                                       c.PK_CAR_ID
+                                   }).
+
+            List<Mileage> bindml = new List<Mileage>();
+
+            foreach (var element in queryTripsList)
+            {
+                Mileage obj = new Mileage();
+                obj.PK_CARMILEAGE_ID = element.;
+              
+                bindml.Add(obj);
+                
+            }
+
+
             gvTrip.DataSource = ml;
             gvTrip.DataBind();
 
