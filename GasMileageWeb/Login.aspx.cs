@@ -49,6 +49,8 @@
             if (result == 1)
             {
                 User u = new User();
+                u.PK_ID_USER = ol.Where(x => x.USERID == txtbxUser.Text
+                && x.PASSWORD == txtPassword.Text).Select(x => x.PK_OWNER_ID).FirstOrDefault();
                 u.FNAME = ol.Where(x => x.USERID == txtbxUser.Text
                 && x.PASSWORD == txtPassword.Text).Select(x => x.FNAME).FirstOrDefault().ToString();
                 u.LNAME = ol.Where(x => x.USERID == txtbxUser.Text

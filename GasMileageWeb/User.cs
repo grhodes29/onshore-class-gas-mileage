@@ -8,6 +8,7 @@ namespace GasMileageWeb
     public class User
     {
 
+        public int PK_ID_USER { get; set; }
         public string FNAME { get; set; }
         public string LNAME { get; set; }
         public string USERTYPE { get; set; }

@@ -172,7 +172,8 @@ namespace GasMileageWeb
             List<OwnerForDropDown> oList = new List<OwnerForDropDown>();
             
             // if ower is admin - get all
-            if (u.USERTYPE == "ADMIN"){
+            if (u.USERTYPE == "ADMIN")
+            {
 
                 // get the owers for my dropdown
                 OwnerBusObj objOwner = new OwnerBusObj();
@@ -190,7 +191,8 @@ namespace GasMileageWeb
                 //                  }).Distinct()).ToList();
 
 
-                var queryList = ((from o in ol select new { o.PK_OWNER_ID, NAME = o.FNAME + " " + o.LNAME }).Distinct()).ToList();
+                var queryList = ((from o in ol select new { o.PK_OWNER_ID, NAME = o.FNAME + 
+                    " " + o.LNAME }).Distinct()).ToList();
 
                 foreach (var element in queryList)
                 {
@@ -204,7 +206,29 @@ namespace GasMileageWeb
             }
 
             // if owner is regular - just one in dropdown - themselves
+            if (u.USERTYPE == "REGULAR")
+            {
+
+                // get the owers for my dropdown
+                OwnerBusObj objOwner = new OwnerBusObj();
+                List<Owner> ol = new List<Owner>();
+                ol = objOwner.GetAllBusObjOwners();
+
+                var queryList = ((from o in ol select new {o.PK_OWNER_ID, NAME = o.FNAME + 
+                    " " + o.LNAME}).Where(x => x.PK_OWNER_ID == u.PK_ID_USER)).ToList();
+
+
+                foreach (var element in queryList)
+                {
+                    OwnerForDropDown obj = new OwnerForDropDown();
+                    obj.Id = element.PK_OWNER_ID;
+                    obj.Name = element.NAME;
+                    oList.Add(obj);
+
+                }
+
             
+            }
            
 
 
