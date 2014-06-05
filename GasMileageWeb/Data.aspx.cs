@@ -50,7 +50,7 @@ namespace GasMileageWeb
                     gvOWNER.Visible = true;
                     LitOWNERS.Visible = true;
                     FillCarGrid();
-                    FillTripGrid();
+                    FillTripGrid();                                           
                     
                 }
                 else

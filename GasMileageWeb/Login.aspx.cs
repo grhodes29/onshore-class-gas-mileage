@@ -37,8 +37,8 @@
             CarBusObj carobjbus = new CarBusObj();
             List<Car> cl = new List<Car>();
 
-            //Owner newowner = new Owner();
-            //newowner.FNAME = txtbxUser.Text;
+            Owner newowner = new Owner();
+            newowner.FNAME = txtbxUser.Text;
 
             ol = ownerobjbus.GetAllBusObjOwners();
             cl = carobjbus.GetAllBusObjCars();
