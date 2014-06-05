@@ -31,6 +31,15 @@ namespace GasMileageWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm formCarData;
         
         /// <summary>
+        /// Welcome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::GasMileageWeb.Welcome Welcome;
+        
+        /// <summary>
         /// Menu control.
         /// </summary>
         /// <remarks>

@@ -21,37 +21,68 @@
 
         protected List<OwnerForDropDown> getOwnerForDropDown()
         {
+            User u = new User();
+            u = (User)Session["USER"];
+
             List<OwnerForDropDown> oList = new List<OwnerForDropDown>();
-            
 
-            // get the cars for my gridview
-            CarBusObj objCar = new CarBusObj();
-            List<Car> cl = new List<Car>();
-            cl = objCar.GetAllBusObjCars();;
-
-            // get the owers for my dropdown
-            OwnerBusObj objOwner = new OwnerBusObj();
-            List<Owner> ol = new List<Owner>();
-            ol = objOwner.GetAllBusObjOwners();
-
-
-
-            var queryList = ((from o in ol
-                              join c in cl on o.PK_OWNER_ID equals c.FK_OWNER_ID
-                              select new
-                              {
-                                  c.FK_OWNER_ID,
-                                  NAME = o.FNAME
-                                      + " " + o.LNAME
-                              }).Distinct()).ToList();
-
-            foreach (var element in queryList)
+            // if owner is admin - get all
+            if (u.USERTYPE == "ADMIN")
             {
-                OwnerForDropDown obj = new OwnerForDropDown();
-                obj.Id = element.FK_OWNER_ID;
-                obj.Name = element.NAME;
-                oList.Add(obj);
-            
+
+                // get the owners for my dropdown
+                OwnerBusObj objOwner = new OwnerBusObj();
+                List<Owner> ol = new List<Owner>();
+                ol = objOwner.GetAllBusObjOwners();
+
+
+                var queryList = ((from o in ol
+                                  select new
+                                  {
+                                      o.PK_OWNER_ID,
+                                      NAME = o.FNAME +
+                                          " " + o.LNAME
+                                  }).Distinct()).ToList();
+
+                foreach (var element in queryList)
+                {
+                    OwnerForDropDown obj = new OwnerForDropDown();
+                    obj.Id = element.PK_OWNER_ID;
+                    obj.Name = element.NAME;
+                    oList.Add(obj);
+
+                }
+
+            }
+
+            // if owner is regular - just one in dropdown - themselves
+            if (u.USERTYPE == "REGULAR")
+            {
+
+                // get the owers for my dropdown
+                OwnerBusObj objOwner = new OwnerBusObj();
+                List<Owner> ol = new List<Owner>();
+                ol = objOwner.GetAllBusObjOwners();
+
+                var queryList = ((from o in ol
+                                  select new
+                                  {
+                                      o.PK_OWNER_ID,
+                                      NAME = o.FNAME +
+                                          " " + o.LNAME
+                                  }).Where(x => x.PK_OWNER_ID == u.PK_ID_USER)).ToList();
+
+
+                foreach (var element in queryList)
+                {
+                    OwnerForDropDown obj = new OwnerForDropDown();
+                    obj.Id = element.PK_OWNER_ID;
+                    obj.Name = element.NAME;
+                    oList.Add(obj);
+
+                }
+
+
             }
 
 
@@ -62,11 +93,31 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
+          
+
+
+            User u = new User();
+            u = (User)Session["USER"];
+
             if (!IsPostBack)
             {
-                FillCarGrid();
-               
-            } 
+
+
+                if (u.USERTYPE == "ADMIN")
+                {
+                 
+                  
+                  
+                    FillCarGrid();
+                 
+                }
+                else
+                {
+                  
+                    FillCarGrid(u);
+                  
+                }
+            }
         }
 
         
@@ -84,6 +135,30 @@
             gvCar.DataBind();
       
            
+        }
+
+        ///<summary>
+        /// Overload for regular user type which should only see their cars
+        ///</summary>
+        ///<remarks>
+        /// Some remarks
+        ///</remarks>
+        ///<param name="u">User u</param>
+        ///<return>void</return>
+        private void FillCarGrid(User u)
+        {
+            // get the cars for my gridview
+            CarBusObj objCar = new CarBusObj();
+            List<Car> cl = new List<Car>();
+            int i = Convert.ToInt32(u.OWNERTABLEID);
+
+            cl = objCar.GetAllBusObjCars();
+            cl = cl.Where(x => x.FK_OWNER_ID == i).ToList();
+
+            gvCar.DataSource = cl;
+            gvCar.DataBind();
+
+
         }
 
 

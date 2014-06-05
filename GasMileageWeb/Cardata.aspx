@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cardata.aspx.cs" Inherits="GasMileageWeb.Cardata" %>
 <%@ Register Src="~/Menu.ascx" TagPrefix="uc1" TagName="Menu" %>
 <%@ Register Src="~/Header.ascx" TagPrefix="uc1" TagName="Header" %>
+<%@ Register Src="~/Welcome.ascx" TagPrefix="uc1" TagName="Welcome" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +13,7 @@
 <body>
     <form id="formCarData" runat="server">
     <div>       
-    <h1>Gridview Car Data</h1>
+        <uc1:Welcome runat="server" ID="Welcome" />
         <uc1:Menu runat="server" ID="Menu" />
     <asp:GridView ID="gvCar" runat="server" AutoGenerateColumns="false" CssClass="grid" OnRowCommand="gvCar_RowCommand"
         OnRowEditing="gvCar_RowEditing" OnRowUpdating="gvCar_RowUpdating" OnRowCancelingEdit="gvCar_RowCancelingEdit" 

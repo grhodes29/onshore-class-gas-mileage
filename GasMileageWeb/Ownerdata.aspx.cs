@@ -12,12 +12,15 @@
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            User u = new User();
+            u = (User)Session["USER"];
+            
+            
             if (!IsPostBack)
             {
                 FillOwnerGrid();
-                User u = new User();
-                u = (User)Session["USER"];
-                lblWelcome.Text = " / Welcome " + u.FNAME + " " + u.LNAME;
+                
+                
 
                 if (u.USERTYPE == "ADMIN")
                 {

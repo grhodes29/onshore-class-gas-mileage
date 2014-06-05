@@ -73,6 +73,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Welcome.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator.aspx.cs">
@@ -147,6 +148,13 @@
       <DependentUpon>Tripdata.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="Welcome.ascx.cs">
+      <DependentUpon>Welcome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Welcome.ascx.designer.cs">
+      <DependentUpon>Welcome.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">

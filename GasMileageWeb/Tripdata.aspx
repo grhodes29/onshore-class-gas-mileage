@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Tripdata.aspx.cs" Inherits="GasMileageWeb.Tripdata" %>
 <%@ Register Src="~/Menu.ascx" TagPrefix="uc1" TagName="Menu" %>
 <%@ Register Src="~/Header.ascx" TagPrefix="uc1" TagName="Header" %>
+<%@ Register Src="~/Welcome.ascx" TagPrefix="uc1" TagName="Welcome" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -10,7 +12,7 @@
 <body>
     <form id="formTripData" runat="server">
     <div>
-        <h1>Gridview Trip Data</h1>
+        <uc1:Welcome runat="server" ID="Welcome" />
         <uc1:Menu runat="server" ID="Menu" />
         <asp:GridView ID="gvTrip" runat="server" AutoGenerateColumns="false" CssClass="grid" DataKeyNames="PK_CARMILEAGE_ID" ShowFooter="true" 
         AlternatingRowStyle-CssClass="gridEditRow" FooterStyle-CssClass="gridFooterRow" EditRowStyle-CssClass="gridEditRow" 
