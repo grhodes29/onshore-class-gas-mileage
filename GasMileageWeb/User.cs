@@ -12,7 +12,6 @@ namespace GasMileageWeb
         public string FNAME { get; set; }
         public string LNAME { get; set; }
         public string USERTYPE { get; set; }
-        public int OWNERTABLEID { get; set; }
         public List<int> CARTABLEIDS { get; set; }
 
  

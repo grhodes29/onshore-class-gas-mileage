@@ -57,12 +57,11 @@
                 && x.PASSWORD == txtPassword.Text).Select(x => x.LNAME).FirstOrDefault().ToString();
                 u.USERTYPE = ol.Where(x => x.USERID == txtbxUser.Text
                 && x.PASSWORD == txtPassword.Text).Select(x => x.USERTYPE).FirstOrDefault().ToString();
-                u.OWNERTABLEID = ol.Where(x => x.USERID == txtbxUser.Text
-                    && x.PASSWORD == txtPassword.Text).Select(x => x.PK_OWNER_ID).FirstOrDefault();
+               
 
 
                // TODO - GET LIST OF CARS FOR THIS OWENER
-                u.CARTABLEIDS = cl.Where(x => x.FK_OWNER_ID == u.OWNERTABLEID).
+                u.CARTABLEIDS = cl.Where(x => x.FK_OWNER_ID == u.PK_ID_USER).
                     Select(y => y.PK_CAR_ID).ToList<int>();
 
                 Session["USER"] = u;

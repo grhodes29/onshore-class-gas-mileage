@@ -150,7 +150,7 @@
             // get the cars for my gridview
             CarBusObj objCar = new CarBusObj();
             List<Car> cl = new List<Car>();
-            int i = Convert.ToInt32(u.OWNERTABLEID);
+            int i = Convert.ToInt32(u.PK_ID_USER);
 
             cl = objCar.GetAllBusObjCars();
             cl = cl.Where(x => x.FK_OWNER_ID == i).ToList();
