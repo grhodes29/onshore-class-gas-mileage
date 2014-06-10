@@ -257,11 +257,9 @@ namespace GasMileageWeb
                     cList.Add(obj);
 
                 }
-
-            
+                         
             }
-            
-        
+                  
             return cList;
         }
 
@@ -302,8 +300,7 @@ namespace GasMileageWeb
                    obj = elementMileage;
                    bind_ml.Add(obj);
                }
-           
-                
+                         
             }
 
 

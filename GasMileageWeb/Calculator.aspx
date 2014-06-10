@@ -14,6 +14,33 @@
     <div>   
         <uc1:Welcome runat="server" ID="Welcome" />
         <uc1:Menu runat="server" ID="Menu" />
+        
+        <asp:Repeater ID="RepeaterCalculator" runat="server">
+            
+            <HeaderTemplate>           
+            <table border="1" width="100%">
+            <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Company</th>
+            <th>Price</th>
+            </tr>
+            </HeaderTemplate>
+
+            <ItemTemplate>
+            <tr>
+            <td><%#Container.DataItem("title")%> </td>
+            <td><%#Container.DataItem("artist")%> </td>
+            <td><%#Container.DataItem("company")%> </td>
+            <td><%#Container.DataItem("price")%> </td>
+            </tr>
+            </ItemTemplate>
+
+            <FooterTemplate>
+            </table>
+            </FooterTemplate>
+
+        </asp:Repeater>
     </div>
     </form>
 </body>

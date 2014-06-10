@@ -14,7 +14,23 @@
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // VB
+            //if Not Page.IsPostBack then
+            //   dim mycdcatalog=New DataSet
+            //   mycdcatalog.ReadXml(MapPath("cdcatalog.xml"))
+            //   cdcatalog.DataSource=mycdcatalog
+            //   cdcatalog.DataBind()
+            //end if
 
+            if (!IsPostBack)
+            {
+                
+                
+                RepeaterCalculator.DataSource = alldata;
+                RepeaterCalculator.DataBind();
+            
+            
+            }
         }
     }
 }
