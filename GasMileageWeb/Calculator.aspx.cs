@@ -25,11 +25,10 @@
             if (!IsPostBack)
             {
                 
-                
-                RepeaterCalculator.DataSource = alldata;
-                RepeaterCalculator.DataBind();
-            
-            
+               //  not sure what alldata is
+               //  RepeaterCalculator.DataSource = alldata;
+               //  RepeaterCalculator.DataBind();
+                        
             }
         }
     }

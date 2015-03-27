@@ -1,0 +1,9 @@
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\bin\Debug\GasMileageBLL.dll
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\bin\Debug\GasMileageBLL.pdb
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\bin\Debug\GasMileageCL.dll
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\bin\Debug\GasMileageDAL.dll
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\bin\Debug\GasMileageCL.pdb
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\bin\Debug\GasMileageDAL.pdb
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\obj\Debug\GasMileageBLL.csprojResolveAssemblyReference.cache
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\obj\Debug\GasMileageBLL.dll
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageBLL\obj\Debug\GasMileageBLL.pdb

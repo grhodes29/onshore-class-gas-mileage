@@ -1,0 +1,5 @@
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageCL\bin\Debug\GasMileageCL.dll.config
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageCL\bin\Debug\GasMileageCL.dll
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageCL\bin\Debug\GasMileageCL.pdb
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageCL\obj\Debug\GasMileageCL.dll
+C:\Users\giancarlo.rhodes\Documents\GitHub\onshore-class-gas-mileage\GasMileageCL\obj\Debug\GasMileageCL.pdb
